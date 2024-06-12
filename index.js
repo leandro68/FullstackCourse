@@ -16,7 +16,7 @@ let notes = [
   },
   {
     id: 3,
-    content: "GET and POST are the most important methods of HTTP protocol.",
+    content: "GET and POST are the most important methods of HTTP protocol",
     important: true
   }
 ]
@@ -32,6 +32,7 @@ const requestLogger = (request, response, next) => {
 app.use(express.json())
 app.use(requestLogger)
 app.use(cors())
+app.use(express.static('dist'))
 
 const unknownEndpoint = (request, response) => {
   response.status(404).send({ error: 'unknown endpoint' })
